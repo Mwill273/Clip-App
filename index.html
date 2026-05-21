@@ -436,6 +436,10 @@ body{font-family:var(--f);background:#000000;color:var(--w);display:flex;align-i
 .ni:active{opacity:.6}
 .ni svg{width:24px;height:24px;stroke:var(--g3);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:stroke .15s}
 .ni.on svg{stroke:var(--w)}
+.ni .ni-filled{display:none}
+.ni .ni-outline{display:block}
+.ni.on .ni-filled{display:block;fill:var(--w);stroke:none}
+.ni.on .ni-outline{display:none}
 .ni-l{font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--g3);transition:color .15s}
 .ni.on .ni-l{color:var(--w)}
 .ni.on::after{content:'';position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--y)}
@@ -843,7 +847,7 @@ body{font-family:var(--f);background:#000000;color:var(--w);display:flex;align-i
 
 <!-- ═══ AUTH OVERLAY ═══ -->
 <div id="authOv">
-  <div class="auth-launch" id="authLaunch"><div class="auth-launch-mark">Clip.</div><div class="auth-launch-tag">15 seconds. Real moments.</div></div>
+  <div class="auth-launch" id="authLaunch"><div style="margin-bottom:12px"><svg viewBox="0 0 1024 1024" width="80" height="80" style="border-radius:18%"><rect width="1024" height="1024" fill="#000"/><g transform="translate(512,512)"><path d="M 80 -220 A 280 280 0 1 0 80 220 L 80 130 A 190 190 0 1 1 80 -130 Z" fill="#F2E007"/><circle cx="200" cy="175" r="52" fill="#F2E007"/></g></svg></div><div class="auth-launch-mark">Clip.</div><div class="auth-launch-tag">15 seconds. Real moments.</div></div>
 
   <!-- WELCOME / CHOOSE -->
   <div class="auth-scr" id="authWelcome">
@@ -1317,11 +1321,11 @@ body{font-family:var(--f);background:#000000;color:var(--w);display:flex;align-i
 
 <!-- ═══ NAV ═══ -->
 <div class="nav">
-  <div class="ni on" id="nHome" onclick="go('feedPg','nHome')" aria-label="Home feed"><svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5V21a1 1 0 01-1 1H5a1 1 0 01-1-1V10.5z"/><path d="M9 22V12h6v10"/></svg><div class="ni-l">Home</div></div>
-  <div class="ni" id="nExp" onclick="go('expPg','nExp')" aria-label="Explore"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/></svg><div class="ni-l">Explore</div></div>
-  <div class="nrec" onclick="go('upPg',null)" aria-label="Record a Clip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="#000" stroke="none"/></svg></div>
-  <div class="ni" id="nAct" onclick="go('actPg','nAct')" aria-label="Activity"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg><div class="ni-l">Activity</div><div class="ndot" id="aDot"></div></div>
-  <div class="ni" id="nProf" onclick="go('profPg','nProf')" aria-label="Profile"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><div class="ni-l">Profile</div></div>
+  <div class="ni on" id="nHome" onclick="go('feedPg','nHome')" aria-label="Home feed"><svg viewBox="0 0 24 24"><path class="ni-outline" d="M3 10.5L12 3l9 7.5V21a1 1 0 01-1 1H5a1 1 0 01-1-1V10.5z"/><path class="ni-outline" d="M9 22V12h6v10"/><path class="ni-filled" d="M3 10.5L12 3l9 7.5V21a1 1 0 01-1 1h-5v-7H9v7H4a1 1 0 01-1-1V10.5z"/></svg><div class="ni-l">Home</div></div>
+  <div class="ni" id="nExp" onclick="go('expPg','nExp')" aria-label="Explore"><svg viewBox="0 0 24 24"><circle class="ni-outline" cx="10.5" cy="10.5" r="6.5"/><line class="ni-outline" x1="15.5" y1="15.5" x2="21" y2="21"/><path class="ni-filled" d="M10.5 4a6.5 6.5 0 014.62 11.08l5.59 5.59a1 1 0 01-1.42 1.42l-5.59-5.59A6.5 6.5 0 1110.5 4z"/></svg><div class="ni-l">Explore</div></div>
+  <div class="nrec" aria-label="Record a Clip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="#000" stroke="none"/></svg></div>
+  <div class="ni" id="nAct" onclick="go('actPg','nAct')" aria-label="Activity"><svg viewBox="0 0 24 24"><path class="ni-outline" d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path class="ni-outline" d="M13.73 21a2 2 0 01-3.46 0"/><path class="ni-filled" d="M12 2a6 6 0 016 6c0 7 3 9 3 9H3s3-2 3-9a6 6 0 016-6z"/><path class="ni-filled" d="M13.73 21a2 2 0 01-3.46 0" fill="none" stroke="var(--w)" stroke-width="2" stroke-linecap="round"/></svg><div class="ni-l">Activity</div><div class="ndot" id="aDot"></div></div>
+  <div class="ni" id="nProf" onclick="go('profPg','nProf')" aria-label="Profile"><svg viewBox="0 0 24 24"><circle class="ni-outline" cx="12" cy="7" r="4"/><path class="ni-outline" d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/><circle class="ni-filled" cx="12" cy="7" r="4"/><path class="ni-filled" d="M4 21c0-4 3.6-7 8-7s8 3 8 7z"/></svg><div class="ni-l">Profile</div></div>
 </div>
 
 <!-- DEV MODE -->
@@ -1492,7 +1496,7 @@ function renderOverlay(i){
   document.getElementById('fRail').innerHTML=`
     <div class="rl" onclick="tst('👤 @${c.user}')"><div class="rl-i"><div style="width:48px;height:48px;border-radius:50%;background:#1a1a1a;border:2px solid ${fw?'var(--y)':'transparent'};display:flex;align-items:center;justify-content:center;font-size:20px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.6))">${c.avi}</div></div></div>
     <div class="rl ${likedS.has(i)?'liked':''}" id="lk${i}" onclick="toggleLk(${i})"><div class="rl-i"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><div class="rl-n" id="lkN${i}">${fN(c.likes)}</div></div>
-    <div class="rl"><div class="rl-i"><div class="loop-n" id="lpN${i}">${fN(loopC[i])}</div></div><div class="rl-n" style="font-size:9px;color:var(--g3);letter-spacing:.06em;text-transform:uppercase">loops</div></div>
+    <div class="rl"><div class="rl-i"><div class="loop-n" id="lpN${i}">${fN(loopC[i])}</div></div><div class="rl-n" style="font-size:9px;color:var(--g3);letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:3px"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="var(--g3)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 01-4 4H3"/></svg>loops</div></div>
     <div class="rl" onclick="openChat(${i})"><div class="rl-i"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div class="rl-n">${fN(c.comments)}</div></div>
     <div class="rl" onclick="tst('🔗 Link copied!')"><div class="rl-i"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></div><div class="rl-n">${fN(c.shares)}</div></div>
     <div class="rl" onclick="toggleFMenu()"><div class="rl-i"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg></div></div>`;
@@ -1570,7 +1574,7 @@ function goClip(dir){
 function showEndOfFeed(){
   const info=document.getElementById('fInfo');
   document.getElementById('fRail').innerHTML='';
-  info.innerHTML=`<div style="text-align:center;padding:40px 0"><div style="font-size:28px;font-weight:700;margin-bottom:8px">You\u2019re all caught up.</div><div style="font-size:15px;color:var(--g2);margin-bottom:20px">Check For You for more Clips.</div><button onclick="document.querySelectorAll('.f-tab').forEach(t=>t.classList.remove('on'));document.querySelectorAll('.f-tab')[1].classList.add('on');tst('Switched to For You')" style="background:var(--y);color:#000;border:none;border-radius:12px;padding:12px 24px;font-family:var(--f);font-size:15px;font-weight:700;cursor:pointer">Open For You</button></div>`;
+  info.innerHTML=`<div style="text-align:center;padding:40px 0"><svg viewBox="0 0 48 48" width="56" height="56" fill="none" stroke="var(--y)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:16px"><circle cx="24" cy="24" r="14"/><polyline points="18 24 22 28 30 20"/><line x1="24" y1="4" x2="24" y2="8" opacity="0.4"/><line x1="24" y1="40" x2="24" y2="44" opacity="0.4"/><line x1="4" y1="24" x2="8" y2="24" opacity="0.4"/><line x1="40" y1="24" x2="44" y2="24" opacity="0.4"/><line x1="10" y1="10" x2="13" y2="13" opacity="0.4"/><line x1="35" y1="35" x2="38" y2="38" opacity="0.4"/><line x1="38" y1="10" x2="35" y2="13" opacity="0.4"/><line x1="13" y1="35" x2="10" y2="38" opacity="0.4"/></svg><div style="font-size:28px;font-weight:700;margin-bottom:8px">You\u2019re all caught up.</div><div style="font-size:15px;color:var(--g2);margin-bottom:20px">Check For You for more Clips.</div><button onclick="document.querySelectorAll('.f-tab').forEach(t=>t.classList.remove('on'));document.querySelectorAll('.f-tab')[1].classList.add('on');tst('Switched to For You')" style="background:var(--y);color:#000;border:none;border-radius:12px;padding:12px 24px;font-family:var(--f);font-size:15px;font-weight:700;cursor:pointer">Open For You</button></div>`;
 }
 
 function wireSwipe(){
@@ -1618,8 +1622,8 @@ function wireSwipe(){
       feedPaused=!feedPaused;
       if(feedPaused)pausePlay();else resumePlay();
       const ico=document.createElement('div');
-      ico.style.cssText=`position:fixed;left:${e.clientX}px;top:${e.clientY}px;transform:translate(-50%,-50%);font-size:40px;color:white;pointer-events:none;z-index:600;opacity:1;transition:opacity .6s`;
-      ico.textContent=feedPaused?'\u23F8':'\u25B6';
+      ico.style.cssText=`position:fixed;left:${e.clientX}px;top:${e.clientY}px;transform:translate(-50%,-50%);pointer-events:none;z-index:600;opacity:1;transition:opacity .6s`;
+      ico.innerHTML=feedPaused?'<svg viewBox="0 0 24 24" width="44" height="44" fill="white" stroke="none"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>':'<svg viewBox="0 0 24 24" width="44" height="44" fill="white" stroke="none"><polygon points="6 3 20 12 6 21"/></svg>';
       document.body.appendChild(ico);setTimeout(()=>ico.style.opacity='0',100);setTimeout(()=>ico.remove(),700);
     },300);
   });
@@ -2500,14 +2504,38 @@ function authValPhone(){const v=document.getElementById('authPhone').value.repla
   document.getElementById('authPhoneHint').textContent=v.length>0&&v.length<7?'Enter a valid phone number':'';}
 function authSendCode(){AUTH.phone=document.getElementById('authCC').value+document.getElementById('authPhone').value;
   AUTH.simCode=String(Math.floor(100000+Math.random()*900000));
-  authGoStep(2);document.getElementById('authCodeSub').textContent='We sent a 6-digit code to '+AUTH.phone;
-  tst('📱 Code: '+AUTH.simCode);authStartResend();}
+  authGoStep(2);
+  document.getElementById('authCodeSub').textContent='We sent a 6-digit code to '+AUTH.phone;
+  document.getElementById('authCodeHint').className='auth-hint';
+  document.getElementById('authCodeHint').textContent='Demo code: '+AUTH.simCode;
+  for(let j=0;j<6;j++)document.getElementById('ac'+j).value='';
+  setTimeout(()=>document.getElementById('ac0').focus(),100);
+  authStartResend();}
 
 // Step 2: Verify code
-function authCodeInput(i){const el=document.getElementById('ac'+i);if(el.value.length===1&&i<5)document.getElementById('ac'+(i+1)).focus();
+function authCodeInput(i){
+  const el=document.getElementById('ac'+i);
+  // Force single digit
+  el.value=el.value.replace(/\D/g,'').slice(-1);
+  if(el.value.length===1&&i<5)document.getElementById('ac'+(i+1)).focus();
+  // Build code from all inputs
   let code='';for(let j=0;j<6;j++)code+=document.getElementById('ac'+j).value;
-  if(code.length===6){if(code===AUTH.simCode){document.getElementById('authCodeHint').textContent='';document.getElementById('authCodeHint').className='auth-hint ok';document.getElementById('authCodeHint').textContent='✓ Verified';setTimeout(()=>authGoStep(3),400);}
-  else{document.getElementById('authCodeHint').className='auth-hint err';document.getElementById('authCodeHint').textContent='Wrong code. Try again.';for(let j=0;j<6;j++)document.getElementById('ac'+j).value='';}}}
+  if(code.length<6)return;
+  // Check after tiny delay to let inputs settle
+  setTimeout(()=>{
+    let final='';for(let j=0;j<6;j++)final+=document.getElementById('ac'+j).value;
+    if(final.length!==6)return;
+    if(final===AUTH.simCode){
+      document.getElementById('authCodeHint').className='auth-hint ok';
+      document.getElementById('authCodeHint').textContent='✓ Verified';
+      setTimeout(()=>authGoStep(3),400);
+    } else {
+      document.getElementById('authCodeHint').className='auth-hint err';
+      document.getElementById('authCodeHint').textContent='Wrong code. Demo code: '+AUTH.simCode;
+      setTimeout(()=>{for(let j=0;j<6;j++)document.getElementById('ac'+j).value='';document.getElementById('ac0').focus();},300);
+    }
+  },50);
+}
 let resendTimer=null;
 function authStartResend(){let s=30;const el=document.getElementById('authResend');el.className='auth-resend';
   clearInterval(resendTimer);resendTimer=setInterval(()=>{s--;el.textContent=s>0?'Resend code ('+s+'s)':'Resend code';if(s<=0){clearInterval(resendTimer);el.className='auth-resend active';el.onclick=()=>{AUTH.simCode=String(Math.floor(100000+Math.random()*900000));tst('📱 New code: '+AUTH.simCode);authStartResend();};}},1000);}
@@ -2563,11 +2591,26 @@ function authComplete(){
 
 // Sign in
 function authValSIPhone(){const v=document.getElementById('authSIPhone').value.replace(/\D/g,'');document.getElementById('authSIBtn').disabled=v.length<7;}
-function authSIVerify(){AUTH.simCode=String(Math.floor(100000+Math.random()*900000));authShowScr('authSIVerify');tst('📱 Code: '+AUTH.simCode);}
-function authSICodeInput(i){const el=document.getElementById('si'+i);if(el.value.length===1&&i<5)document.getElementById('si'+(i+1)).focus();
+function authSIVerify(){AUTH.simCode=String(Math.floor(100000+Math.random()*900000));authShowScr('authSIVerify');
+  document.getElementById('authSICodeHint').className='auth-hint';
+  document.getElementById('authSICodeHint').textContent='Demo code: '+AUTH.simCode;
+  for(let j=0;j<6;j++)document.getElementById('si'+j).value='';
+  setTimeout(()=>document.getElementById('si0').focus(),100);}
+function authSICodeInput(i){
+  const el=document.getElementById('si'+i);
+  el.value=el.value.replace(/\D/g,'').slice(-1);
+  if(el.value.length===1&&i<5)document.getElementById('si'+(i+1)).focus();
   let code='';for(let j=0;j<6;j++)code+=document.getElementById('si'+j).value;
-  if(code.length===6){if(code===AUTH.simCode){AUTH.loggedIn=true;document.getElementById('authOv').classList.add('hidden');tst('Welcome back!');}
-  else{document.getElementById('authSICodeHint').className='auth-hint err';document.getElementById('authSICodeHint').textContent='Wrong code. Try again.';for(let j=0;j<6;j++)document.getElementById('si'+j).value='';}}}
+  if(code.length<6)return;
+  setTimeout(()=>{
+    let final='';for(let j=0;j<6;j++)final+=document.getElementById('si'+j).value;
+    if(final.length!==6)return;
+    if(final===AUTH.simCode){AUTH.loggedIn=true;document.getElementById('authOv').classList.add('hidden');tst('Welcome back!');}
+    else{document.getElementById('authSICodeHint').className='auth-hint err';
+      document.getElementById('authSICodeHint').textContent='Wrong code. Demo code: '+AUTH.simCode;
+      setTimeout(()=>{for(let j=0;j<6;j++)document.getElementById('si'+j).value='';document.getElementById('si0').focus();},300);}
+  },50);
+}
 
 // Logout
 function authLogout(){if(!confirm('Log out of Clip?'))return;AUTH.loggedIn=false;closeSettings();
